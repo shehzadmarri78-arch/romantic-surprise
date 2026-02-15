@@ -1,2 +1,109 @@
 # romantic-surprise
 Public 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Surprise</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-size: 1.5em;
+            position: relative;
+            overflow: hidden;
+        }
+        #name-corner {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1em;
+            color: white;
+            opacity: 0.8;
+        }
+        .hidden {
+            display: none;
+        }
+        .question {
+            text-align: center;
+            margin: 20px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .effect {
+            position: absolute;
+            top: -50px;
+            animation: fall 3s linear infinite;
+            font-size: 2em;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh); }
+        }
+        .teddy {
+            font-size: 3em;
+            margin-top: 20px;
+        }
+        #love-text {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+
+<div id="name-corner">Shahzad Marri</div>
+
+<div id="greeting">
+    <h1>hello sweet heart ❤️</h1>
+    <button onclick="startQuestions()">Start Our Journey ❤️</button>
+</div>
+
+<div id="question1" class="question hidden">
+    <p>If I plan a surprise for you, what would you like?</p>
+    <button onclick="selectOption1()">Anything with love ❤️</button>
+</div>
+
+<div id="end" class="question hidden">
+    <div id="love-text">I love you</div>
+    <button onclick="doubleLove()">Click for Love ❤️</button>
+</div>
+
+<script>
+function startQuestions() {
+    document.getElementById('greeting').classList.add('hidden');
+    document.getElementById('question1').classList.remove('hidden');
+}
+function selectOption1() {
+    document.getElementById('question1').classList.add('hidden');
+    document.getElementById('end').classList.remove('hidden');
+}
+function doubleLove() {
+    const t = document.getElementById('love-text');
+    t.innerText = t.innerText + " " + t.innerText;
+}
+</script>
+
+</body>
+</html>
